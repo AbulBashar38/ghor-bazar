@@ -13,7 +13,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PaymentIcon from '@material-ui/icons/Payment';
-import { Button, Link } from '@material-ui/core';
+import { Button} from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -44,42 +45,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Header = () => {
     const classes = useStyles();
-    // const [anchorEl, setAnchorEl] = React.useState(null);
+    
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-    // const isMenuOpen = Boolean(anchorEl);
+   
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-
+    
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
 
-    // const handleMenuClose = () => {
-    //     setAnchorEl(null);
-    //     handleMobileMenuClose();
-    // };
-
-    const handleMobileMenuOpen = (event) => {
+     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    // const menuId = 'primary-search-account-menu';
-    // const renderMenu = (
-    //     <Menu
-    //         anchorEl={anchorEl}
-    //         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-    //         id={menuId}
-    //         keepMounted
-    //         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-    //         open={isMenuOpen}
-    //         onClose={handleMenuClose}
-    //     >
-    //         <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-    //         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    //     </Menu>
-    // );
+    
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
@@ -133,54 +115,50 @@ const Header = () => {
                                 <HomeIcon />
                             </Badge>
                         </IconButton>
-                        <Link
-                            style={{marginRight:'8px'}} 
-                            color="inherit"
-                            component="button"
-                            variant="body2"
+                        <Button
+                            component={RouterLink}
+                            to="/home"
+                            style={{ marginRight: '8px' }} color="inherit"
                         >
                             Home
-                        </Link>
+                        </Button>
                         <IconButton color="inherit">
                             <Badge color="secondary">
                                 <ShoppingCartIcon />
                             </Badge>
                         </IconButton>
-                        <Link
-                            style={{marginRight:'8px'}} 
-                            color="inherit"
-                            component="button"
-                            variant="body2"
+                        <Button
+                            component={RouterLink}
+                            to="/order"
+                            style={{ marginRight: '8px' }} color="inherit"
                         >
                             Orders
-                        </Link>
+                        </Button>
                         <IconButton color="inherit">
                             <Badge color="secondary">
                                 <AccountBoxIcon />
                             </Badge>
                         </IconButton>
-                        <Link
-                            style={{marginRight:'8px'}} 
-                            color="inherit"
-                            component="button"
-                            variant="body2"
+                        <Button
+                            component={RouterLink}
+                            to="/admin"
+                            style={{ marginRight: '8px' }} color="inherit"
                         >
                             Admin
-                        </Link>
+                        </Button>
                         <IconButton color="inherit">
                             <Badge color="secondary">
                                 <PaymentIcon />
                             </Badge>
                         </IconButton>
-                        <Link
-                            style={{marginRight:'8px'}} 
-                            color="inherit"
-                            component="button"
-                            variant="body2"
+                        <Button
+                            component={RouterLink}
+                            to="/deals"
+                            style={{ marginRight: '8px' }} color="inherit"
                         >
                             Deals
-                        </Link>
-                        <Button style={{marginRight:'8px'}} color="inherit">Login</Button>
+                        </Button>
+                        <Button style={{ marginRight: '8px' }} color="secondary" variant="contained">Login</Button>
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
@@ -196,7 +174,6 @@ const Header = () => {
                 </Toolbar>
             </AppBar>
             {renderMobileMenu}
-            {/* {renderMenu} */}
         </div>
     );
 };

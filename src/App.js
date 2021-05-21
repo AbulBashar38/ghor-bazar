@@ -1,12 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './Components/Header/Header';
 
+import Header from './Components/Header/Header';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './Components/Home/Home';
+import NotFound from './Components/NotFound/NotFound';
 function App() {
   return (
-    <div>
+    <Router>
       <Header></Header>
-    </div>
+
+      <Switch>
+        <Route path="/about">
+          {/* <About /> */}
+        </Route>
+        <Route path="/users">
+          {/* <Users /> */}
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="*">
+          <NotFound></NotFound>
+        </Route>
+      </Switch>
+    </Router>
+
+
   );
 }
 
