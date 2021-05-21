@@ -3,11 +3,11 @@ import Header from './Components/Header/Header';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
+import Admin from './Components/Admin/Admin';
 function App() {
   return (
     <Router>
@@ -17,8 +17,8 @@ function App() {
         <Route path="/about">
           {/* <About /> */}
         </Route>
-        <Route path="/users">
-          {/* <Users /> */}
+        <Route path="/admin">
+          <Admin></Admin>
         </Route>
         <Route exact path="/">
           <Home />
