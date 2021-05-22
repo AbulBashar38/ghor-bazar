@@ -8,14 +8,19 @@ import {
 import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
 import Admin from './Components/Admin/Admin';
+import AddProduct from './Components/AddProduct/AddProduct';
+import EditProduct from './Components/EditProduct/EditProduct';
 function App() {
   return (
     <Router>
       <Header></Header>
 
       <Switch>
-        <Route path="/about">
-          {/* <About /> */}
+        <Route path="/addProduct">
+          <AddProduct></AddProduct>
+        </Route>
+        <Route path="/editProduct">
+          <EditProduct></EditProduct>
         </Route>
         <Route path="/admin">
           <Admin></Admin>
