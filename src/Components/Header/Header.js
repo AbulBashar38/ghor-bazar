@@ -22,12 +22,6 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
         marginRight: theme.spacing(2),
     },
-    title: {
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
-    },
 
 
     sectionDesktop: {
@@ -105,7 +99,7 @@ const Header = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
+                    <Typography variant="h6" noWrap>
                         Ghor Bazar
             </Typography>
                     <div className={classes.grow} />
