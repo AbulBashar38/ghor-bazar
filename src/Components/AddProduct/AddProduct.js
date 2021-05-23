@@ -15,10 +15,11 @@ import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm, Controller } from "react-hook-form";
-import { Button, TextField } from '@material-ui/core';
+import { Button, Input, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import SaveIcon from '@material-ui/icons/Save';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
 
 const AddProduct = () => {
     const classes = useStyles();
-    const { control, handleSubmit } = useForm();
+    const { control, register, handleSubmit } = useForm();
+
     const [imageURL, setImageURL] = useState(null)
     const onSubmit = data => console.log(data);
     console.log(imageURL);
@@ -123,16 +125,67 @@ const AddProduct = () => {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form noValidate onSubmit={handleSubmit(onSubmit)}>
                     <Grid container spacing={5}>
                         <Grid item xs={6}>
-                            <TextField style={{ width: '100%' }} id="outlined-basic" label="Product name" variant="outlined" />
+                            <Controller
+                                name="productName"
+                                control={control}
+                                defaultValue=""
+                                render={({ field: { onChange, value }, fieldState: { error } }) => (
+                                    <TextField
+                                        fullWidth
+                                        label="Product name"
+                                        variant="outlined"
+                                        value={value}
+                                        onChange={onChange}
+                                        error={!!error}
+                                        helperText={error ? error.message : null}
+                                        type="text"
+                                    />
+                                )}
+                                rules={{ required: 'Product name required' }}
+                            />
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField style={{ width: '100%' }} id="outlined-basic" label="Wight" variant="outlined" />
+                            <Controller
+                                name="wight"
+                                control={control}
+                                defaultValue=""
+                                render={({ field: { onChange, value }, fieldState: { error } }) => (
+                                    <TextField
+                                        fullWidth
+                                        label="Wight"
+                                        variant="outlined"
+                                        value={value}
+                                        onChange={onChange}
+                                        error={!!error}
+                                        helperText={error ? error.message : null}
+                                        type="text"
+                                    />
+                                )}
+                                rules={{ required: 'Wight required' }}
+                            />
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField style={{ width: '100%' }} id="outlined-basic" label="Price" variant="outlined" />
+                            <Controller
+                                name="price"
+                                control={control}
+                                defaultValue=""
+                                render={({ field: { onChange, value }, fieldState: { error } }) => (
+                                    <TextField
+                                        fullWidth
+                                        label="Price"
+                                        variant="outlined"
+                                        value={value}
+                                        onChange={onChange}
+                                        error={!!error}
+                                        helperText={error ? error.message : null}
+                                        type="number"
+                                    />
+                                )}
+                                rules={{ required: 'Price required' }}
+                            />
                         </Grid>
                         <Grid item xs={6}>
                             <input
@@ -152,7 +205,7 @@ const AddProduct = () => {
                                     startIcon={<CloudUploadIcon />}
 
                                 >
-                                    Upload product images
+                                    product image
                                 </Button>
                             </label>
                         </Grid>
@@ -167,7 +220,7 @@ const AddProduct = () => {
                     >
                         Add product
                     </Button>
-                    {/* <input type="submit" /> */}
+
                 </form>
             </main>
         </div>
