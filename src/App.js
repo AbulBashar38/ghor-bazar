@@ -10,12 +10,17 @@ import NotFound from './Components/NotFound/NotFound';
 import Admin from './Components/Admin/Admin';
 import AddProduct from './Components/AddProduct/AddProduct';
 import EditProduct from './Components/EditProduct/EditProduct';
+import ProductTable from './Components/productTable/ProductTable';
+
 function App() {
   return (
     <Router>
       <Header></Header>
 
       <Switch>
+        <Route path="/table">
+          <ProductTable></ProductTable>
+        </Route>
         <Route path="/addProduct">
           <AddProduct></AddProduct>
         </Route>

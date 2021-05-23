@@ -66,7 +66,11 @@ const EditProduct = () => {
             anchor="left"
             
         >
-            <div className={classes.toolbar}><h3 style={{textAlign:'center'}}>Ghor Bazar</h3></div>
+            <div className={classes.toolbar}><ListItem button component={RouterLink} to='/home' style={{ textAlign: 'center' }}>
+                <ListItemText
+                  disableTypography
+                  primary={<Typography type="body2" style={{ color: 'white' }}><strong>Ghor Bazar</strong></Typography>}/>
+                </ListItem></div>
             
             <List>
                 <ListItem button component={RouterLink} to='/admin'>
