@@ -15,7 +15,7 @@ import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm, Controller } from "react-hook-form";
-import { Button, Input, TextField } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import SaveIcon from '@material-ui/icons/Save';
@@ -58,12 +58,30 @@ const useStyles = makeStyles((theme) => ({
 
 
 const AddProduct = () => {
-    const classes = useStyles();
-    const { control, register, handleSubmit } = useForm();
 
+    const classes = useStyles();
+    const { control, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null)
-    const onSubmit = data => console.log(data);
-    console.log(imageURL);
+
+    const onSubmit = data => {
+        const productInfo= {...data,imgUrl:imageURL}
+        console.log(productInfo);
+        fetch('http://localhost:5000/addProductInDatabase',{
+            method:'POST',
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(productInfo)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if (data) {
+                console.log("one Product added");
+            }
+        })
+    }
+
+    
     const UploadInImgbb = (event) => {
 
         const imageData = new FormData();
