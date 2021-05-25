@@ -4,14 +4,14 @@ import ShowProduct from '../ShowProduct/ShowProduct';
 
 const Home = () => {
     const [allProducts, setAllProducts] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/allProduct')
             .then(res => res.json())
             .then(data => setAllProducts(data))
-    },[])
+    }, [])
     return (
         <Grid container>
-            {allProducts.map(product=><ShowProduct key={product._id} product={product}></ShowProduct>)}
+            {allProducts.map(product => <ShowProduct key={product._id} product={product}></ShowProduct>)}
         </Grid>
     );
 };

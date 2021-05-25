@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
         backgroundColor: '#203D37'
     },
-    // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
@@ -61,30 +60,30 @@ const AddProduct = () => {
 
     const classes = useStyles();
     const { control, handleSubmit } = useForm();
-    const [imageURL, setImageURL] = useState(null)
+    const [imageURL, setImageURL] = useState(null);
 
     const onSubmit = data => {
-        const productInfo= {...data,imgUrl:imageURL}
-        console.log(productInfo);
-        fetch('http://localhost:5000/addProductInDatabase',{
-            method:'POST',
-            headers:{
-                "content-type":"application/json"
+        const productInfo = { ...data, imgUrl: imageURL };
+        fetch('http://localhost:5000/addProductInDatabase', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
             },
-            body:JSON.stringify(productInfo)
+            body: JSON.stringify(productInfo)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if (data) {
-                window.location.reload(false);
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    window.location.reload(false);
+                }
+            })
     }
 
-    
+
     const UploadInImgbb = (event) => {
 
         const imageData = new FormData();
+
         imageData.set('key', '68b6ff580c83ca61463a6d6da0adcd4d');
         imageData.append('image', event.target.files[0]);
 
@@ -100,11 +99,13 @@ const AddProduct = () => {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
+            <AppBar
+                position="fixed"
+                className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
                         Add new products
-                </Typography>
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -118,40 +119,64 @@ const AddProduct = () => {
 
             >
                 <div className={classes.toolbar}>
-                <ListItem button component={RouterLink} to='/home' style={{ textAlign: 'center' }}>
-                <ListItemText
-                  disableTypography
-                  primary={<Typography type="body2" style={{ color: 'white' }}><strong>Ghor Bazar</strong></Typography>}/>
-                </ListItem>
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/home'
+                        style={{ textAlign: 'center' }}>
+                        <ListItemText
+                            disableTypography
+                            primary={
+                                <Typography
+                                    type="body2"
+                                    style={{ color: 'white' }}>
+                                    <strong>Ghor Bazar</strong>
+                                </Typography>} />
+                    </ListItem>
                 </div>
 
                 <List>
-                    <ListItem button component={RouterLink} to='/admin'>
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/admin'>
                         <ListItemIcon>
                             <SettingsApplicationsIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Manage Product" />
                     </ListItem>
-                    <ListItem button component={RouterLink} to='/addProduct'>
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/addProduct'>
                         <ListItemIcon>
                             <AddIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Add Product" />
                     </ListItem>
-                    <ListItem button component={RouterLink} to='/editProduct'>
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/editProduct'>
                         <ListItemIcon>
                             <EditIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Edit Product" />
                     </ListItem>
                 </List>
-
             </Drawer>
+
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <form noValidate onSubmit={handleSubmit(onSubmit)}>
-                    <Grid container spacing={5}>
-                        <Grid item xs={6}>
+                <form
+                    noValidate
+                    onSubmit={handleSubmit(onSubmit)}>
+                    <Grid
+                        container
+                        spacing={5}>
+                        <Grid
+                            item
+                            xs={6}>
                             <Controller
                                 name="productName"
                                 control={control}
@@ -171,7 +196,9 @@ const AddProduct = () => {
                                 rules={{ required: 'Product name required' }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid
+                            item
+                            xs={6}>
                             <Controller
                                 name="wight"
                                 control={control}
@@ -191,7 +218,9 @@ const AddProduct = () => {
                                 rules={{ required: 'Wight required' }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid
+                            item
+                            xs={6}>
                             <Controller
                                 name="price"
                                 control={control}

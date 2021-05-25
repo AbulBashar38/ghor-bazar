@@ -30,6 +30,7 @@ const Login = () => {
             .then((result) => {
                 const { displayName, email } = result.user;
                 const userInfo = {
+                    ...loggedInUser,
                     name: displayName,
                     email: email
                 }

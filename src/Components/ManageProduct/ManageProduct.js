@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
         backgroundColor: '#203D37'
     },
-    // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
@@ -47,13 +46,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ManageProduct = () => {
-   
+
     const classes = useStyles();
-   
+
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
+            <AppBar
+                position="fixed"
+                className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
                         Manage Product
@@ -70,36 +71,62 @@ const ManageProduct = () => {
                 anchor="left"
 
             >
-                <div className={classes.toolbar}><ListItem button component={RouterLink} to='/home' style={{ textAlign: 'center' }}>
-                <ListItemText
-                  disableTypography
-                  primary={<Typography type="body2" style={{ color: 'white' }}><strong>Ghor Bazar</strong></Typography>}/>
-                </ListItem></div>
+                <div
+                    className={classes.toolbar}>
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/home'
+                        style={{ textAlign: 'center' }}>
+                        <ListItemText
+                            disableTypography
+                            primary={
+                                <Typography
+                                    type="body2"
+                                    style={{ color: 'white' }}>
+                                    <strong>Ghor Bazar</strong>
+                                </Typography>}
+                        />
+                    </ListItem>
+                </div>
 
                 <List>
-                    <ListItem button component={RouterLink} to='/admin'>
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/admin'>
                         <ListItemIcon>
                             <SettingsApplicationsIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Manage Product" />
                     </ListItem>
-                    <ListItem button component={RouterLink} to='/addProduct'>
+
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/addProduct'>
                         <ListItemIcon>
                             <AddIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Add Product" />
                     </ListItem>
-                    <ListItem button component={RouterLink} to='/editProduct'>
+
+                    <ListItem
+                        button
+                        component={RouterLink}
+                        to='/editProduct'>
                         <ListItemIcon>
                             <EditIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Edit Product" />
                     </ListItem>
+
                 </List>
             </Drawer>
+            
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-               <ProductTable></ProductTable>
+                <ProductTable></ProductTable>
             </main>
         </div>
     );
