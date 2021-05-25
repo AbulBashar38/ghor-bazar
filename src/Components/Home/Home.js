@@ -11,7 +11,7 @@ const Home = () => {
     },[])
     return (
         <Grid container>
-            {allProducts.map(product=><ShowProduct product={product}></ShowProduct>)}
+            {allProducts.map(product=><ShowProduct key={product._id} product={product}></ShowProduct>)}
         </Grid>
     );
 };

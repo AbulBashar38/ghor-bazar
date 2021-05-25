@@ -152,7 +152,8 @@ const Header = () => {
                         >
                             Deals
                         </Button>
-                        <Button style={{ marginRight: '8px' }} color="secondary" variant="contained">Login</Button>
+                        <Button component={RouterLink}
+                            to="/login" style={{ marginRight: '8px' }} color="secondary" variant="contained">Login</Button>
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
