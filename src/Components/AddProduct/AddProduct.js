@@ -64,7 +64,7 @@ const AddProduct = () => {
 
     const onSubmit = data => {
         const productInfo = { ...data, imgUrl: imageURL };
-        fetch('http://localhost:5000/addProductInDatabase', {
+        fetch('https://guarded-lowlands-32604.herokuapp.com/addProductInDatabase', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

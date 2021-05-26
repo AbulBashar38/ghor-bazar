@@ -19,7 +19,7 @@ const Home = () => {
     const classes = useStyles();
     const [allProducts, setAllProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/allProduct')
+        fetch('https://guarded-lowlands-32604.herokuapp.com/allProduct')
             .then(res => res.json())
             .then(data => setAllProducts(data))
     }, [])

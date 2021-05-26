@@ -24,7 +24,7 @@ const Checkout = () => {
     const id = loggedInUser.productId
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/checkoutProduct/${id}`)
+        fetch(`https://guarded-lowlands-32604.herokuapp.com/checkoutProduct/${id}`)
         .then(res=>res.json())
         .then(data=>{
             setCheckoutProduct(data)
@@ -38,7 +38,7 @@ const Checkout = () => {
             email:loggedInUser.email,
             date: new Date()
         }
-        fetch('http://localhost:5000/orderItem',{
+        fetch('https://guarded-lowlands-32604.herokuapp.com/orderItem',{
             method:"POST",
             headers:{
                 'Content-Type':"application/json"
