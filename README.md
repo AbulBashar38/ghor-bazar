@@ -8,7 +8,7 @@
 * Firebase Google Authentication for every page
 * Before order can go in the check out page
 * user can see orders and can cancel order.
-* Admin can delete and add produt from admin panel.
+* Admin can delete and add product from admin panel.
 * Data loading spinner
 
 ## Technology:
