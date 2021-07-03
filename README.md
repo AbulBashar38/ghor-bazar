@@ -9,6 +9,7 @@
 * Before order can go in the check out page
 * user can see orders and can cancel order.
 * Admin can delete and add produt from admin panel.
+* Data loading spinner
 
 ## Technology:
 * html5
