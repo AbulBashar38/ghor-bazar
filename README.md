@@ -19,11 +19,13 @@
 * react-router
 ## Photos
 #### This is home page
-![homePage](homePage.png)
+![homePage](./src/image/homePage.png)
 #### This is Order page
-![orderPage](orderPage.png)
+![orderPage](./src/image/orderPage.png)
 #### This is Admin page
-![adminPage](adminPage.png)
+![adminPage](./src/image/adminPage.png)
+#### This is add product page
+![adminPage](./src/image/addProduct.png)
 
 ###### Live link of the web side : https://ghor-bazar.web.app/
 ###### Server link of the web side : https://ghor-bazar.web.app/
