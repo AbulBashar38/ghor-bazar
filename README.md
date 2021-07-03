@@ -28,4 +28,4 @@
 ![adminPage](./src/image/addProduct.png)
 
 ###### Live link of the web side : https://ghor-bazar.web.app/
-###### Server link of the web side : https://ghor-bazar.web.app/
+###### Server link of the web side : https://github.com/AbulBashar38/ghor-bazar-client
