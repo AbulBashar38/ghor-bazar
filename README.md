@@ -1,4 +1,4 @@
-# [Ghor Bazar Client](https://ghor-bazar.web.app/) | [server](https://ghor-bazar.web.app/)
+# [Ghor Bazar](https://ghor-bazar.web.app/) | [Client(Github)](https://github.com/AbulBashar38/ghor-bazar-client) | [Server(Github)](https://github.com/AbulBashar38/ghor-bazar-server) 
 
 ## Description
 #### This website is basically a daily market. All kinds of products are shown on the home page of the website. Clicking on the buy now button of the product you want to buy will ask the buyer to log in and then take you to the check out page. There will be a description of the product then click on the check out button to confirm the order and take you to the next page. There you will see a list of what products the buyer has ordered. You can cancel the order from there. In the admin panel, you can delete products from Manage Products, add new products from Ad Products.
