@@ -22,7 +22,7 @@ const Orders = () => {
             "Do you really want to delete this Order?"
         )
         if (confirmBox === true) {
-            fetch(`https://guarded-lowlands-32604.herokuapp.com/deleteOrder/${id}`, {
+            fetch(`https://ghor-bazar-server.onrender.com/deleteOrder/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -36,7 +36,7 @@ const Orders = () => {
     }
 
     useEffect(() => {
-        fetch('https://guarded-lowlands-32604.herokuapp.com/userOrder?email=' + loggedInUser.email)
+        fetch('https://ghor-bazar-server.onrender.com/userOrder?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrderedProduct(data))
     }, [loggedInUser.email])

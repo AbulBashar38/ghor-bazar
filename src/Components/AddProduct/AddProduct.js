@@ -64,7 +64,7 @@ const AddProduct = () => {
 
     const onSubmit = data => {
         const productInfo = { ...data, imgUrl: imageURL };
-        fetch('https://guarded-lowlands-32604.herokuapp.com/addProductInDatabase', {
+        fetch('https://ghor-bazar-server.onrender.com/addProductInDatabase', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
